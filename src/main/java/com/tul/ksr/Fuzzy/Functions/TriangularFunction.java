@@ -1,18 +1,18 @@
 package com.tul.ksr.Fuzzy.Functions;
 
-public class TriangularFunction implements FuzzyFunction {
-    private double a;
-    private double b;
-    private double c;
+import java.util.LinkedList;
+import java.util.List;
 
-    public TriangularFunction(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+public class TriangularFunction implements FuzzyFunction {
+    private List<Double> points;
+
+
+    public TriangularFunction(List<Double> pointsList) {
+        points = new LinkedList<>(pointsList);
     }
 
     @Override
     public double getMembership(double x) {
-        return Math.max(Math.min((x - a) / (b - a), (c - x) / (c - b)), 0);
+        return Math.max(Math.min((x - points.get(0)) / (points.get(1) - points.get(0)), (points.get(2) - x) / (points.get(2) - points.get(1))), 0);
     }
 }

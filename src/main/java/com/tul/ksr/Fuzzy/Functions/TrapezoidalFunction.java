@@ -1,20 +1,18 @@
 package com.tul.ksr.Fuzzy.Functions;
 
-public class TrapezoidalFunction implements FuzzyFunction {
-    double a;
-    double b;
-    double c;
-    double d;
+import java.util.LinkedList;
+import java.util.List;
 
-    public TrapezoidalFunction(double a, double b, double c, double d) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+public class TrapezoidalFunction implements FuzzyFunction {
+    private List<Double> points;
+
+
+    public TrapezoidalFunction(List<Double> pointsList) {
+        points = new LinkedList<>(pointsList);
     }
 
     @Override
     public double getMembership(double x) {
-        return Math.max(Math.min(Math.min((x - a) / (b - a), 1), (d - x) / (d - c)), 0);
+        return Math.max(Math.min(Math.min((x - points.get(0)) / (points.get(1) - points.get(0)), 1), (points.get(3) - x) / (points.get(3) - points.get(2))), 0);
     }
 }
