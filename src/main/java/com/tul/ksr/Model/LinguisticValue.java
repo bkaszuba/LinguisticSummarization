@@ -14,4 +14,16 @@ public class LinguisticValue {
         this.points = points;
         this.functionType = functionType;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public List<Double> getPoints() {
+        return points;
+    }
+
+    public FunctionType getFunctionType() {
+        return functionType;
+    }
 }

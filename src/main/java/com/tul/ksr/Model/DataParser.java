@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class DataParser {
-    public static List<Player> parse() throws IOException {
+    public static List<Player> createPlayerList() throws IOException {
         return new CsvToBeanBuilder(new FileReader("resources/Master.csv"))
                 .withType(Player.class).build().parse();
     }
