@@ -13,7 +13,7 @@ import static java.util.Arrays.asList;
 public class DataCreator {
     public List<Quantifier> createQuantifiers() {
         List<Quantifier> quantifiers = new ArrayList<>();
-        quantifiers.add(new Quantifier("Mało", createPointsList(0.0, 0.0, 0.05), RELATIVE, TRIANGLE));
+        quantifiers.add(new Quantifier("Mało", createPointsList(0.0, 0.1, 0.2), RELATIVE, TRIANGLE));
         quantifiers.add(new Quantifier("Połowa", createPointsList(0.4, 0.5, 0.6), RELATIVE, TRIANGLE));
         quantifiers.add(new Quantifier("Dużo", createPointsList(0.5, 0.8, 1.0, 1.0), RELATIVE, TRAPEZOID));
         quantifiers.add(new Quantifier("Około 2000", createPointsList(1000.0, 2000.0, 3000.0), ABSOLUTE, TRIANGLE));
@@ -44,6 +44,7 @@ public class DataCreator {
     private List<Double> createPointsList(double a, double b, double c, double d) {
         return new ArrayList<>(asList(a, b, c, d));
     }
+
     private Method getMethod(String name) throws NoSuchMethodException {
         return Player.class.getMethod(name);
     }

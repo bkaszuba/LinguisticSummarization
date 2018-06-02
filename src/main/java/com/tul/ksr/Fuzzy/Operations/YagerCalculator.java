@@ -28,7 +28,7 @@ public class YagerCalculator {
     }
 
     private void calculateYagerForEachLinguisticValue(Quantifier quantifier, LinguisticValue linguisticValue) throws InvocationTargetException, IllegalAccessException {
-        System.out.print(quantifier.getDescription() + " ");
+        System.out.print(quantifier.getDescription() + " jest ");
         System.out.print(linguisticValue.getDescription() + " ");
         TriangularFunction triangularFunctionQuantifiers = new TriangularFunction(quantifier.getPoints());
         TriangularFunction triangularFunctionLinguisticValues = new TriangularFunction(linguisticValue.getPoints());
@@ -36,8 +36,8 @@ public class YagerCalculator {
         for (Player player : players) {
             cardinalValue += getMembershipValue(triangularFunctionLinguisticValues, player, linguisticValue);
         }
-        System.out.printf("%.2f", cardinalValue);
-        System.out.print(" ");
+//        System.out.printf("%.2f", cardinalValue);
+//        System.out.print(" ");
         System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue));
         System.out.println();
     }

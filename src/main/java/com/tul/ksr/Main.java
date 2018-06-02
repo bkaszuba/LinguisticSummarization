@@ -1,5 +1,6 @@
 package com.tul.ksr;
 
+import com.tul.ksr.Fuzzy.Operations.GeorgeCalculator;
 import com.tul.ksr.Fuzzy.Operations.YagerCalculator;
 import com.tul.ksr.Model.*;
 
@@ -17,24 +18,24 @@ public class Main {
 //        OperationManager operation = new OperationManager(asList(trian1, trian2));
 //        System.out.println(operation.getIntersectionMembership(7));
 
-
         DataCreator dataCreator = new DataCreator();
         List<Quantifier> quantifierList = dataCreator.createQuantifiers();
         List<LinguisticValue> linguisticValues = dataCreator.createLinguisticValue();
 
         List<LinguisticValue> severalLinguisticValues = new ArrayList<>();
-        severalLinguisticValues.add(linguisticValues.get(2));
+        severalLinguisticValues.add(linguisticValues.get(0));
         severalLinguisticValues.add(linguisticValues.get(3));
-        severalLinguisticValues.add(linguisticValues.get(4));
 
         List<Quantifier> severalQuantifiers = new ArrayList<>();
-        severalQuantifiers.add(quantifierList.get(3));
+        severalQuantifiers.add(quantifierList.get(0));
         severalQuantifiers.add(quantifierList.get(4));
-
 
         List<Player> players = DataParser.createPlayerList();
         YagerCalculator yagerCalculator = new YagerCalculator(severalQuantifiers, severalLinguisticValues, players);
         yagerCalculator.calculateYager();
 
+
+        GeorgeCalculator georgeCalculator = new GeorgeCalculator(severalQuantifiers, severalLinguisticValues, players);
+        georgeCalculator.calculateGeorge();
     }
 }
