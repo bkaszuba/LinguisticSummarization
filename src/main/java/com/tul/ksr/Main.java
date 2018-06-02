@@ -1,19 +1,12 @@
 package com.tul.ksr;
 
-import com.tul.ksr.Fuzzy.Functions.TrapezoidalFunction;
-import com.tul.ksr.Fuzzy.Functions.TriangularFunction;
-import com.tul.ksr.Fuzzy.Operations.OperationManager;
 import com.tul.ksr.Fuzzy.Operations.YagerCalculator;
 import com.tul.ksr.Model.*;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 //        TriangularFunction trian1 = new TriangularFunction(new ArrayList<>(asList(0.0, 4.0, 8.0)));
 //        System.out.println(trian1.getMembership(4));
 //        TrapezoidalFunction trap = new TrapezoidalFunction(new ArrayList<>(asList(0.0, 2.0, 4.0, 6.0)));

@@ -1,11 +1,11 @@
 package com.tul.ksr.Model;
 
 public class DataUtils {
-    public static enum QuantifierType {
+    public enum QuantifierType {
         RELATIVE, ABSOLUTE
     }
 
-    public static enum FunctionType {
+    public enum FunctionType {
         TRIANGLE, TRAPEZOID
     }
 }
