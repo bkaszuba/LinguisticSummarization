@@ -1,12 +1,15 @@
 package com.tul.ksr.Fuzzy.Operations;
 
 import com.tul.ksr.Fuzzy.Functions.TriangularFunction;
+import com.tul.ksr.Model.DataUtils;
 import com.tul.ksr.Model.LinguisticValue;
 import com.tul.ksr.Model.Player;
 import com.tul.ksr.Model.Quantifier;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import static com.tul.ksr.Model.DataUtils.QuantifierType.RELATIVE;
 
 public class YagerCalculator {
     List<Quantifier> quantifiers;
@@ -36,9 +39,11 @@ public class YagerCalculator {
         for (Player player : players) {
             cardinalValue += getMembershipValue(triangularFunctionLinguisticValues, player, linguisticValue);
         }
-//        System.out.printf("%.2f", cardinalValue);
-//        System.out.print(" ");
-        System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue));
+        if (quantifier.getQuantifierType().equals(RELATIVE)) {
+            System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue / players.size()));
+        } else {
+            System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue));
+        }
         System.out.println();
     }
 

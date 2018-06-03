@@ -28,14 +28,14 @@ public class Main {
 
         List<Quantifier> severalQuantifiers = new ArrayList<>();
         severalQuantifiers.add(quantifierList.get(0));
-        severalQuantifiers.add(quantifierList.get(4));
+        severalQuantifiers.add(quantifierList.get(1));
+        severalQuantifiers.add(quantifierList.get(2));
 
         List<Player> players = DataParser.createPlayerList();
         YagerCalculator yagerCalculator = new YagerCalculator(severalQuantifiers, severalLinguisticValues, players);
         yagerCalculator.calculateYager();
-
-
-        GeorgeCalculator georgeCalculator = new GeorgeCalculator(severalQuantifiers, severalLinguisticValues, players);
-        georgeCalculator.calculateGeorge();
+//
+//        GeorgeCalculator georgeCalculator = new GeorgeCalculator(severalQuantifiers, severalLinguisticValues, players);
+//        georgeCalculator.calculateGeorge();
     }
 }

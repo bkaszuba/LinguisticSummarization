@@ -8,6 +8,8 @@ import com.tul.ksr.Model.Quantifier;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+import static com.tul.ksr.Model.DataUtils.QuantifierType.RELATIVE;
+
 public class GeorgeCalculator {
     List<Quantifier> quantifiers;
     List<LinguisticValue> linguisticValues;
@@ -30,7 +32,11 @@ public class GeorgeCalculator {
             for (Player player : players) {
                 cardinalValue += calculateGeorgeForEachPlayer(player);
             }
-            System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue));
+            if (quantifier.getQuantifierType().equals(RELATIVE)) {
+                System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue / players.size()));
+            } else {
+                System.out.printf("%.2f", triangularFunctionQuantifiers.getMembership(cardinalValue));
+            }
             System.out.println();
         }
     }
