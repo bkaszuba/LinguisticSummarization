@@ -19,11 +19,18 @@ public class DataCreator {
         quantifiers.add(new Quantifier("Około 2000", createPointsList(1000.0, 2000.0, 3000.0), ABSOLUTE, TRIANGLE));
         quantifiers.add(new Quantifier("Około 4000", createPointsList(3000.0, 4000.0, 5000.0), ABSOLUTE, TRIANGLE));
         quantifiers.add(new Quantifier("Około 6000", createPointsList(5000.0, 6000.0, 7000.0), ABSOLUTE, TRIANGLE));
+        //TEST
+        quantifiers.add(new Quantifier("SOME", createPointsList(0.1,0.2, 0.3, 0.4), RELATIVE, TRAPEZOID));
+        quantifiers.add(new Quantifier("ABOUT HALF", createPointsList(0.3,0.4,0.5,0.6), RELATIVE, TRAPEZOID));
+        quantifiers.add(new Quantifier("A LOT", createPointsList(0.5,0.6,0.9,1.1), RELATIVE, TRAPEZOID));
         return quantifiers;
     }
 
     public List<LinguisticValue> createLinguisticValue() throws NoSuchMethodException {
         List<LinguisticValue> linguisticValues = new ArrayList<>();
+        linguisticValues.add(new LinguisticValue("WEIGHT A LOT", createPointsList(165.0, 190.0, 230.0), TRIANGLE, getMethod("getWeight")));
+        linguisticValues.add(new LinguisticValue("WEIGHT LITTLE", createPointsList(153.0, 165.0, 195.0, 210.0), TRAPEZOID, getMethod("getWeight")));
+        linguisticValues.add(new LinguisticValue("WEIGHT A LOT", createPointsList(180.0, 210.0, 225.0, 240.0), TRAPEZOID, getMethod("getWeight")));
         linguisticValues.add(new LinguisticValue("o niskiej wadze", createPointsList(125.0, 140.0, 150.0), TRIANGLE, getMethod("getWeight")));
         linguisticValues.add(new LinguisticValue("o wysokiej wadze", createPointsList(240.0, 250.0, 265.0), TRIANGLE, getMethod("getWeight")));
         linguisticValues.add(new LinguisticValue("niskiego wzrostu", createPointsList(61.0, 65.0, 69.0), TRIANGLE, getMethod("getHeight")));

@@ -1,5 +1,8 @@
 package com.tul.ksr.Model;
 
+import com.tul.ksr.Fuzzy.Functions.FuzzyFunction;
+import com.tul.ksr.Fuzzy.Functions.TrapezoidalFunction;
+import com.tul.ksr.Fuzzy.Functions.TriangularFunction;
 import com.tul.ksr.Model.DataUtils.FunctionType;
 import com.tul.ksr.Model.DataUtils.QuantifierType;
 
@@ -10,12 +13,21 @@ public class Quantifier {
     private List<Double> points;
     private QuantifierType quantifierType;
     private FunctionType functionType;
+    private FuzzyFunction fuzzyFunction;
 
     public Quantifier(String description, List<Double> points, QuantifierType quantifierType, FunctionType functionType) {
         this.description = description;
         this.points = points;
         this.quantifierType = quantifierType;
         this.functionType = functionType;
+        switch (functionType) {
+            case TRIANGLE:
+                this.fuzzyFunction = new TriangularFunction(this.getPoints());
+                break;
+            case TRAPEZOID:
+                this.fuzzyFunction = new TrapezoidalFunction(this.getPoints());
+                break;
+        }
     }
 
     public String getDescription() {
@@ -32,5 +44,9 @@ public class Quantifier {
 
     public FunctionType getFunctionType() {
         return functionType;
+    }
+
+    public FuzzyFunction getFuzzyFunction() {
+        return fuzzyFunction;
     }
 }
