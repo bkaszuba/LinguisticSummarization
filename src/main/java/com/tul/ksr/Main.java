@@ -36,7 +36,7 @@ public class Main {
         List<Player> players = DataParser.createPlayerList();
         List<Player> playerTest = players.subList(0, 10);
         QualityMeasures qualityMeasures = new QualityMeasures(severalLinguisticValues, severalQuantifiers, playerTest);
-        qualityMeasures.T1();
+        qualityMeasures.getQuality();
 //        YagerCalculator yagerCalculator = new YagerCalculator(severalQuantifiers, severalLinguisticValues, playerTest);
 //        yagerCalculator.calculateYager();
 //
